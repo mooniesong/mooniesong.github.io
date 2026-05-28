@@ -1,0 +1,195 @@
+/* ===== 기본 설정 ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --surface: #f8f7f5;
+  --border: #e8e5df;
+  --text: #1a1917;
+  --muted: #6b6861;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141412;
+    --surface: #1e1d1b;
+    --border: #2e2d2a;
+    --text: #f0ede8;
+    --muted: #9a9790;
+    --accent: #60a5fa;
+    --accent-hover: #93c5fd;
+  }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a { color: inherit; text-decoration: none; }
+h1 { font-size: 2rem; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1.5rem; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+
+/* ===== 헤더 ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 1rem 0;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo { font-size: 1.1rem; font-weight: 700; }
+
+nav { display: flex; gap: 1.5rem; }
+nav a { font-size: 0.9rem; color: var(--muted); transition: color 0.2s; }
+nav a:hover { color: var(--text); }
+
+/* ===== 히어로 ===== */
+.hero {
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 { margin-bottom: 1rem; }
+.hero p { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--accent-hover); color: #fff; }
+
+/* ===== 소개 ===== */
+.about { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+
+.about-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.avatar {
+  font-size: 3rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.about-text p { color: var(--muted); margin: 0.5rem 0 1rem; font-size: 0.95rem; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* ===== 글 목록 ===== */
+.posts { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+
+.post-grid { display: flex; flex-direction: column; gap: 1rem; }
+
+.post-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.post-card:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.post-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem; }
+.post-card h3 { margin-bottom: 0.4rem; }
+.post-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; }
+.read-more { font-size: 0.85rem; color: var(--accent); font-weight: 500; }
+
+/* ===== 연락처 ===== */
+.contact { padding: 4rem 0; border-bottom: 1px solid var(--border); text-align: center; }
+.contact p { color: var(--muted); margin-bottom: 1.5rem; }
+
+.contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+.contact-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact-btn:hover { border-color: var(--accent); background: var(--bg); }
+
+/* ===== 푸터 ===== */
+.site-footer { padding: 2rem 0; text-align: center; }
+.site-footer p { font-size: 0.85rem; color: var(--muted); }
+
+/* ===== 글 페이지 ===== */
+.post-header { padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); }
+.post-header .post-meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+.post-header h1 { font-size: 1.75rem; }
+
+.post-body {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-body p { margin-bottom: 1.25rem; color: var(--muted); }
+.post-body h2 { margin: 2rem 0 1rem; }
+.post-body ul, .post-body ol { margin: 0 0 1.25rem 1.5rem; color: var(--muted); }
+.post-body li { margin-bottom: 0.4rem; }
+.post-body code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.88rem;
+  font-family: 'Courier New', monospace;
+}
+
+.post-nav { padding: 2rem 0; }
+.post-nav a { color: var(--accent); font-size: 0.9rem; }
+
+/* ===== 반응형 ===== */
+@media (max-width: 600px) {
+  h1 { font-size: 1.6rem; }
+  .about-card { flex-direction: column; }
+  nav { gap: 1rem; }
+}

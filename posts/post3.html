@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML/CSS 기초 정리 · My Blog</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">✏️ My Blog</a>
+      <nav>
+        <a href="../index.html">홈</a>
+        <a href="../index.html#about">소개</a>
+        <a href="../index.html#posts">글 목록</a>
+        <a href="../index.html#contact">연락처</a>
+      </nav>
+    </div>
+  </header>
+
+  <article>
+    <div class="post-header">
+      <div class="container">
+        <div class="post-meta">2025년 1월 28일</div>
+        <h1>HTML/CSS 기초 정리</h1>
+      </div>
+    </div>
+
+    <div class="post-body">
+      <div class="container">
+        <p>웹 개발을 처음 배울 때 가장 먼저 만나는 것이 HTML과 CSS입니다. 핵심 개념을 간단히 정리해봤어요.</p>
+
+        <h2>HTML이란?</h2>
+        <p>HTML(HyperText Markup Language)은 웹 페이지의 <strong>구조</strong>를 담당합니다. 제목, 문단, 링크, 이미지 등을 태그로 표현합니다.</p>
+        <ul>
+          <li><code>&lt;h1&gt;</code> ~ <code>&lt;h6&gt;</code> — 제목</li>
+          <li><code>&lt;p&gt;</code> — 문단</li>
+          <li><code>&lt;a href="..."&gt;</code> — 링크</li>
+          <li><code>&lt;img src="..."&gt;</code> — 이미지</li>
+          <li><code>&lt;div&gt;</code>, <code>&lt;section&gt;</code> — 구역 구분</li>
+        </ul>
+
+        <h2>CSS란?</h2>
+        <p>CSS(Cascading Style Sheets)는 웹 페이지의 <strong>디자인</strong>을 담당합니다. 색상, 폰트, 레이아웃 등을 지정합니다.</p>
+        <ul>
+          <li><code>color</code>, <code>background</code> — 색상</li>
+          <li><code>font-size</code>, <code>font-weight</code> — 글자</li>
+          <li><code>margin</code>, <code>padding</code> — 여백</li>
+          <li><code>display: flex</code>, <code>display: grid</code> — 레이아웃</li>
+        </ul>
+
+        <h2>정리</h2>
+        <p>HTML은 뼈대, CSS는 옷이라고 생각하면 쉽습니다. 이 둘만 잘 익혀도 멋진 정적 웹사이트를 만들 수 있어요. 다음에는 JavaScript로 동적인 기능을 추가하는 법을 정리해 보겠습니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <div class="post-nav">
+    <div class="container">
+      <a href="../index.html#posts">← 글 목록으로</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 My Blog · Made with ❤️</p>
+    </div>
+  </footer>
+
+</body>
+</html>
