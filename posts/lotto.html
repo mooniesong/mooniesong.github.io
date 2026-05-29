@@ -29,13 +29,19 @@
       margin-bottom: 32px;
     }
 
-    .balls {
+    .balls-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 36px;
+      min-height: 152px;
+    }
+
+    .balls-row {
       display: flex;
       gap: 12px;
       justify-content: center;
-      margin-bottom: 36px;
-      min-height: 70px;
-      align-items: center;
     }
 
     .ball {
@@ -51,12 +57,11 @@
       box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
 
-    /* 로또 번호대별 색상 */
-    .ball.range1  { background-color: #f5a623; } /* 1~10   노랑 */
-    .ball.range2  { background-color: #4a90d9; } /* 11~20  파랑 */
-    .ball.range3  { background-color: #e74c3c; } /* 21~30  빨강 */
-    .ball.range4  { background-color: #7b7b7b; } /* 31~40  회색 */
-    .ball.range5  { background-color: #27ae60; } /* 41~45  초록 */
+    .ball.range1 { background-color: #f5a623; } /* 1~10  노랑 */
+    .ball.range2 { background-color: #4a90d9; } /* 11~20 파랑 */
+    .ball.range3 { background-color: #e74c3c; } /* 21~30 빨강 */
+    .ball.range4 { background-color: #7b7b7b; } /* 31~40 회색 */
+    .ball.range5 { background-color: #27ae60; } /* 41~45 초록 */
 
     button {
       padding: 14px 36px;
@@ -77,7 +82,7 @@
 <body>
   <div class="container">
     <h1>1 ~ 45 로또 번호 생성기</h1>
-    <div class="balls" id="balls"></div>
+    <div class="balls-wrapper" id="balls-wrapper"></div>
     <button onclick="generateLotto()">번호 뽑기</button>
   </div>
 
@@ -86,22 +91,30 @@
       const numbers = [];
 
       while (numbers.length < 6) {
-        const num = Math.floor(Math.random() * 45) + 1; // 1 ~ 45
+        const num = Math.floor(Math.random() * 45) + 1;
         if (!numbers.includes(num)) {
           numbers.push(num);
         }
       }
 
-      numbers.sort((a, b) => a - b); // 오름차순 정렬
+      numbers.sort((a, b) => a - b);
 
-      const container = document.getElementById('balls');
-      container.innerHTML = '';
+      const wrapper = document.getElementById('balls-wrapper');
+      wrapper.innerHTML = '';
 
-      numbers.forEach(num => {
-        const ball = document.createElement('div');
-        ball.classList.add('ball', getBallRange(num));
-        ball.textContent = num;
-        container.appendChild(ball);
+      // 1행: 앞 3개 / 2행: 뒤 3개
+      [numbers.slice(0, 3), numbers.slice(3, 6)].forEach(rowNums => {
+        const row = document.createElement('div');
+        row.classList.add('balls-row');
+
+        rowNums.forEach(num => {
+          const ball = document.createElement('div');
+          ball.classList.add('ball', getBallRange(num));
+          ball.textContent = num;
+          row.appendChild(ball);
+        });
+
+        wrapper.appendChild(row);
       });
     }
 
